@@ -14,7 +14,9 @@ brew install stow
 # [[ OH MY ZSH ]]
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+
 pushd $DOTFILES
+git clone https://github.com/Santiago-Silvera/nvim ~/.dotfiles/nvim/.config/nvim
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
 	# echo "stow $folder"
