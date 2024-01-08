@@ -1,4 +1,6 @@
 
+#!/usr/bin/env zsh
+
 export STOW_FOLDERS="bin,nvim,tmux,personal,zsh"
 
 addToPath() {
