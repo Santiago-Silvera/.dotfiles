@@ -10,9 +10,9 @@ if [[ -z $STOW_FOLDERS ]]; then
 	STOW_FOLDERS="bin,personal,nvim,tmux,zsh"
 fi
 
-# [[ BREW ]]
+# [[ BREW ]
 command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew"; \
-git clone https://github.com/Homebrew/brew homebrew }
+git clone https://github.com/Homebrew/brew homebrew ; }
 eval "$(homebrew/bin/brew shellenv)"
 brew update --force --quiet
 chmod -R go-w "$(brew --prefix)/share/zsh"
