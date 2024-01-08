@@ -25,6 +25,7 @@ brew_install() {
     fi
 }
 brew_install "stow"
+brew_install "tmux"
 
 # [[ STOW ]]
 pushd $DOTFILES
@@ -39,3 +40,5 @@ done
 popd
 tmux
 tmux source ~/.tmux.conf
+source ~/.zshrc
+source ~/.zprofile
