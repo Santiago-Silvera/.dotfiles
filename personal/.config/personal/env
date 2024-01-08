@@ -1,0 +1,27 @@
+
+export STOW_FOLDERS="bin,nvim,tmux,personal,zsh"
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+commitDotFiles() {
+    pushd $DOTFILES
+    pushd personal
+    git add .
+    git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+    git push origin master
+    popd
+    git add .
+    git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+    git push origin master
+    popd
+}
