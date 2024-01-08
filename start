@@ -24,6 +24,7 @@ brew_install() {
 }
 brew_install "stow"
 brew_install "nvim"
+brew_install "fzf"
 brew_install "tmux"
 
 # [[ STOW ]]
