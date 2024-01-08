@@ -7,15 +7,16 @@
 
 DOTFILES=$HOME/.dotfiles
 if [[ -z $STOW_FOLDERS ]]; then
-	STOW_FOLDERS="bin,personal,nvim,tmux,zsh"
+	STOW_FOLDERS="bin,personal,nvim,tmux"
 fi
 
 # [[ BREW ]
 command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew"; \
-git clone https://github.com/Homebrew/brew ~/../homebrew ; }
-eval "$(~/../homebrew/bin/brew shellenv)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ;}
+eval "$(homebrew/bin/brew shellenv)"
 brew update --force --quiet
 chmod -R go-w "$(brew --prefix)/share/zsh"
+
 brew_install() {
     echo "\nInstalling $1"
     if brew list $1 &>/dev/null; then
@@ -30,14 +31,14 @@ brew_install "tmux"
 # [[ STOW ]]
 pushd $DOTFILES
 git clone https://github.com/Santiago-Silvera/nvim ~/.dotfiles/nvim/.config/nvim
-rm ~/.zprofile
 for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
 do
-	# echo "stow $folder"
 	stow -D $folder
 	stow -v $folder
 done
 popd
+rm ~/.zprofile
+stow -v zsh
 tmux
 tmux source ~/.tmux.conf
 source ~/.zshrc
