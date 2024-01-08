@@ -12,8 +12,7 @@ fi
 
 # [[ BREW ]
 command -v brew >/dev/null 2>&1 || { echo >&2 "Installing Homebrew"; \
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" ;}
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/elizabethflores/.zprofile
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/elizabethflores/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew_install() {
     echo "\nInstalling $1"

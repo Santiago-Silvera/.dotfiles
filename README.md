@@ -23,10 +23,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ## Quick Start
 
 ```
-cd ~
-git clone https://github.com/Santiago-Silvera/.dotfiles.git
-cd .dotfiles
-./start
+git clone https://github.com/Santiago-Silvera/.dotfiles.git ~/.dotfiles | ./.dotfiles/start
 ```
 As easy as that!
 
